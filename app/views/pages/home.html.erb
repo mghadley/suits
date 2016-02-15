@@ -1,0 +1,4 @@
+<h1>Hello there</h1>
+<% unless Measurement.find_by(user_id: current_user.id) %>
+	<%= link_to "You need to give us your measurements", new_measurement_path %>
+<% end %>

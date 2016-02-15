@@ -1,8 +1,10 @@
-<table>
+<table class = "table table-striped">
 	<% @measurement.attributes.each do |name, value| %>
-		<tr>
-			<td><%= name.titleize %></td>
-			<td><%= "#{value} inches" %></td>
-		</tr>
+		<% if name != 'created_at' && name != 'id' && name != 'updated_at' && name != 'user_id' && name != 'order_id' %>
+			<tr>
+				<td><%= name.titleize %></td>
+				<td><%= "#{value} inches" %></td>
+			</tr>
+		<% end %>
 	<% end %>
 </table>
