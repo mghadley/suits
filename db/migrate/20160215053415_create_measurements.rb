@@ -14,8 +14,11 @@ class CreateMeasurements < ActiveRecord::Migration
     	t.float :crotch
     	t.float :pantslength
     	t.float :thigh
-    	t.float :kneww
+    	t.float :knee
     	t.float :ankle
+
+    	t.references :user, index: true, foreign_key: true
+    	t.references :order, index: true, foreign_key: true
 
       t.timestamps null: false
     end
