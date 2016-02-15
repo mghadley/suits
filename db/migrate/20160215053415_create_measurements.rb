@@ -6,13 +6,13 @@ class CreateMeasurements < ActiveRecord::Migration
     	t.float :sleeve
     	t.float :chest
     	t.float :stomach
-    	t.float :jacketlength
+    	t.float :jacket_length
     	t.float :front
     	t.float :back
     	t.float :waist
     	t.float :hips
     	t.float :crotch
-    	t.float :pantslength
+    	t.float :pants_length
     	t.float :thigh
     	t.float :knee
     	t.float :ankle

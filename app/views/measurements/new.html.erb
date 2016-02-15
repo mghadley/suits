@@ -1,0 +1,14 @@
+<%= form_for(@measurement) do |f| %>
+	<table>
+		<% @measurement.attributes.each do |name, value| %>
+			<tr>
+				<% if name != 'created_at' && name != 'id' && name != 'updated_at' && name != 'user_id' && name != 'order_id' %>
+					<td><%= f.label name %></td>
+					<td><%= f.number_field name, :step => 'any' %></td>
+				<% end %>
+			</tr>
+		<% end %>
+	</table>
+
+	<%= f.submit "Submit" %>
+<% end %>

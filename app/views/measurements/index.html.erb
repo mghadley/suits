@@ -1,0 +1,8 @@
+<table>
+	<% @measurement.attributes.each do |name, value| %>
+		<tr>
+			<td><%= name.titleize %></td>
+			<td><%= "#{value} inches" %></td>
+		</tr>
+	<% end %>
+</table>
