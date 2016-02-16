@@ -1,3 +1,3 @@
 class Material < ActiveRecord::Base
-	has_many :orders
+	has_many :suits
 end
