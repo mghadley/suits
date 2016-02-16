@@ -49,14 +49,14 @@ ActiveRecord::Schema.define(version: 20160215053415) do
   add_index "measurements", ["user_id"], name: "index_measurements_on_user_id"
 
   create_table "order_customizations", force: :cascade do |t|
-    t.integer  "order_id"
+    t.integer  "suit_id"
     t.integer  "customization_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
   add_index "order_customizations", ["customization_id"], name: "index_order_customizations_on_customization_id"
-  add_index "order_customizations", ["order_id"], name: "index_order_customizations_on_order_id"
+  add_index "order_customizations", ["suit_id"], name: "index_order_customizations_on_suit_id"
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
