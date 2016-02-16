@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216035512) do
+ActiveRecord::Schema.define(version: 20160215053415) do
 
   create_table "customizations", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -49,14 +49,14 @@ ActiveRecord::Schema.define(version: 20160216035512) do
   add_index "measurements", ["user_id"], name: "index_measurements_on_user_id"
 
   create_table "order_customizations", force: :cascade do |t|
-    t.integer  "suit_id"
+    t.integer  "order_id"
     t.integer  "customization_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
   add_index "order_customizations", ["customization_id"], name: "index_order_customizations_on_customization_id"
-  add_index "order_customizations", ["suit_id"], name: "index_order_customizations_on_suit_id"
+  add_index "order_customizations", ["order_id"], name: "index_order_customizations_on_order_id"
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
@@ -65,30 +65,6 @@ ActiveRecord::Schema.define(version: 20160216035512) do
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
-
-  create_table "suits", force: :cascade do |t|
-    t.float    "shoulders"
-    t.float    "sleeve"
-    t.float    "chest"
-    t.float    "stomach"
-    t.float    "jacket_length"
-    t.float    "front"
-    t.float    "back"
-    t.float    "waist"
-    t.float    "hips"
-    t.float    "crotch"
-    t.float    "pants_length"
-    t.float    "thigh"
-    t.float    "knee"
-    t.float    "ankle"
-    t.integer  "material_id"
-    t.integer  "order_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "suits", ["material_id"], name: "index_suits_on_material_id"
-  add_index "suits", ["order_id"], name: "index_suits_on_order_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
