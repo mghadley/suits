@@ -1,2 +1,8 @@
-<%= form_for @order %>
-	<% if current_user
+<% if Measurement.find_by(user_id: current_user.id) == nil %>
+	<h1>Please update your measurements before placing an order</h1>
+<% else %>
+	<h3>I would like to use...</h3>
+	<%= link_to "My measurements", '#' %><br/>
+	<%= link_to "New measurements", '#' %>
+
+
