@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   authenticated do
     root to: 'pages#home', as: :authenticated_root
   end
+  
   root to: 'pages#index'
   resources :orders
   resources :measurements
