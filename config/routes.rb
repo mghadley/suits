@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :orders
   resources :measurements
 
+  get   'choose_measurements'  => 'orders#choose_measurements'
+  post  'new_order_post'       => 'orders#new'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

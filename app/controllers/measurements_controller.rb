@@ -14,6 +14,19 @@ class MeasurementsController < ApplicationController
   	redirect_to measurements_path(id: @measurement.id)
   end
 
+  def edit
+    @measurement = Measurement.find_by(user_id: current_user.id)
+  end
+
+  def udpate
+    @measurement = Measurement.find_by(user_id: current_user.id)
+    if @measurement.update_attributes(safe_params)
+      redirect_to new_order_path
+    else
+      redirect_to root_path
+    end 
+  end
+
   private
 
   def safe_params

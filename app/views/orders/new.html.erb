@@ -1,9 +1,12 @@
 <% if Measurement.find_by(user_id: current_user.id) == nil %>
 	<h1>Please update your measurements before placing an order</h1>
 <% else %>
-	<h3>I would like to use...</h3>
-	<%= link_to "My measurements fool", '#' %><br/>
-	<%= link_to "New measurements", '#' %>
+	<% if params[:measurements] == "existing" %>
+		<h2>Would you like to update your measurements?</h2>
+		<%= render 'layouts/edit_measurements' %>
+	<% end %>
 <% end %>
+
+
 
 

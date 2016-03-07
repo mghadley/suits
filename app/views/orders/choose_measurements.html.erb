@@ -1,0 +1,9 @@
+<%= form_tag new_order_post_path, :method => :post do%>
+	<%= radio_button_tag(:measurements, "existing") %>
+	<%= label_tag(:measurements, "I would like to use my measurements") %>
+	<%= radio_button_tag(:measurements, "new") %>
+	<%= label_tag(:measurements, "I would like to use new measurements") %>
+
+	<%= submit_tag 'Submit' %>
+<% end %>
+
