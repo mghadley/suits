@@ -17,6 +17,7 @@
               <% if Measurement.find_by(user_id: current_user.id) %>
                   <li><%= link_to 'See your measurements',
                                   measurements_path(id: (Measurement.find_by(user_id: current_user.id)).id) %></li>
+                  <li><%= link_to 'Edit your measurements', edit_measurement_path(id: (Measurement.find_by(user_id: current_user.id)).id) %></li>
               <% end %>
             </ul>
           </li>

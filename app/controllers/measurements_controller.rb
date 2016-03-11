@@ -18,12 +18,12 @@ class MeasurementsController < ApplicationController
     @measurement = Measurement.find_by(user_id: current_user.id)
   end
 
-  def udpate
+  def update
     @measurement = Measurement.find_by(user_id: current_user.id)
     if @measurement.update_attributes(safe_params)
-      redirect_to new_order_path
+      redirect_to new_order_path #to be changed later
     else
-      redirect_to root_path
+      redirect_to root_path #to be changed later
     end 
   end
 
