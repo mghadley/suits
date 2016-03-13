@@ -20,10 +20,15 @@ class MeasurementsController < ApplicationController
 
   def update
     @measurement = Measurement.find_by(user_id: current_user.id)
+    #render body: YAML::dump(params)
     if @measurement.update_attributes(safe_params)
-      redirect_to new_order_path #to be changed later
+      if params[:measurement][:source] == 'order'
+        redirect_to new_order_path
+      else
+        redirect_to measurements_path(id: @measurement.id)
+      end
     else
-      redirect_to root_path #to be changed later
+      redirect_to edit_measurements_path
     end 
   end
 

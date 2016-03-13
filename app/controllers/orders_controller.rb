@@ -30,6 +30,9 @@ class OrdersController < ApplicationController
 		end
 	end
 
+	def update_measurements
+	end
+
 	def index
 	end
 end

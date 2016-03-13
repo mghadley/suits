@@ -3,9 +3,16 @@
 <% else %>
 	<% if params[:measurements] == "existing" %>
 		<h2>Would you like to update your measurements?</h2>
-		<%= render 'layouts/edit_measurements' %>
+		<%= form_for(@measurement) do |f| %>
+			<%= render 'layouts/measurements', f: f %>
+			<%= f.hidden_field :source, value: "order" %>
+			<%= f.submit "Submit", class: "btn btn-primary" %>
+		<% end %>
 	<% else %>
-		<%= render 'layouts/order_measurements' %>
+		<%= form_for(@suit, url: orders_path) do |f| %>
+			<%= render 'layouts/measurements', f: f %>
+			<%= f.submit "Submit", class: "btn btn-primary" %>
+		<% end %>
 	<% end %>
 <% end %>
 

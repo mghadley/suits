@@ -1,3 +1,6 @@
 <h2>Edit your measurements</h2>
-
-<%= render 'layouts/edit_measurements' %>
+<%= form_for(@measurement) do |f| %>
+	<%= render 'layouts/measurements', f: f %>
+	<%= f.hidden_field :source, value: "edit" %>
+	<%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

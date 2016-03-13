@@ -1,14 +1,5 @@
 <%= form_for(@measurement) do |f| %>
-	<table>
-		<% @measurement.attributes.each do |name, value| %>
-			<tr>
-				<% if name != 'created_at' && name != 'id' && name != 'updated_at' && name != 'user_id' && name != 'order_id' %>
-					<td><%= f.label name, id: "measurement-label"%></td>
-					<td id="measurement-input"><%= f.number_field name, :step => 'any', class: "form-control" %></td>
-				<% end %>
-			</tr>
-		<% end %>
-	</table>
+	<%= render 'layouts/measurements', f: f %>
 
 	<%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
