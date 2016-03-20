@@ -23,7 +23,7 @@ class MeasurementsController < ApplicationController
     #render body: YAML::dump(params)
     if @measurement.update_attributes(safe_params)
       if params[:measurement][:source] == 'order'
-        redirect_to new_order_path
+        redirect_to new_suit_path(measurements: 'user')
       else
         redirect_to measurements_path(id: @measurement.id)
       end

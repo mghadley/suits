@@ -12,9 +12,10 @@ Rails.application.routes.draw do
 
   resources :orders
   resources :measurements
+  resources :suits
 
-  get   'choose_measurements'  => 'orders#choose_measurements'
-  post  'new_order_post'       => 'orders#new'
+  get   'choose_measurements'  => 'suits#choose_measurements'
+  post  'new_suit_post'       => 'suits#new'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

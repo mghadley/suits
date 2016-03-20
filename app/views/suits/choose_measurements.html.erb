@@ -1,7 +1,7 @@
 <% if Measurement.find_by(user_id: current_user.id) == nil %>
 	<h1>Please update your measurements before placing an order</h1>
 <% else %>
-	<%= form_tag new_order_post_path, :method => :post do%>
+	<%= form_tag new_suit_post_path, :method => :post do%>
 		<%= radio_button_tag(:measurements, "existing") %>
 		<%= label_tag(:measurements, "I would like to use my measurements") %>
 		<%= radio_button_tag(:measurements, "new") %>

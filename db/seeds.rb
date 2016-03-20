@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Customization.create([{name: 'One Vent'}, {name: 'Two Vents'}, {name: 'Notch Lapels'}, {name: 'Peak Lapels'}, 
+											{name: 'One Button'}, {name: 'Two Button'}, {name: 'Three Button'}])

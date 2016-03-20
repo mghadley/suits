@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20160216035512) do
 
   create_table "customizations", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -81,6 +82,9 @@ ActiveRecord::Schema.define(version: 20160216035512) do
     t.float    "thigh"
     t.float    "knee"
     t.float    "ankle"
+    t.integer  "buttons"
+    t.integer  "vents"
+    t.string   "lapel"
     t.integer  "material_id"
     t.integer  "order_id"
     t.datetime "created_at",    null: false

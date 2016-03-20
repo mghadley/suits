@@ -17,6 +17,11 @@ class CreateSuits < ActiveRecord::Migration
     	t.float :knee
     	t.float :ankle
 
+        t.integer :buttons
+        t.integer :vents
+        t.string  :lapel
+
+
     	t.references :material, index: true, foreign_key: true
    		t.belongs_to :order, index: true, foreign_key: true
 
