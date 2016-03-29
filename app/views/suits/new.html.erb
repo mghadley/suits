@@ -1,61 +1,54 @@
 <% if Measurement.find_by(user_id: current_user.id) == nil %>
 	<h1>Please update your measurements before placing an order</h1>
 <% else %>
-	<% if params[:measurements] == "existing" %>
-		<h2>Would you like to update your measurements?</h2>
-		<%= form_for(@measurement) do |f| %>
+	<%= form_for(@suit) do |f| %>
+		<div id="measurements-step">
+			<h3>Below are the measurements you gave us</h3>
+			<h4>Please make any necessary changes before moving on</h4>
 			<%= render 'layouts/measurements', f: f %>
-			<%= f.hidden_field :source, value: "order" %>
+			<button class='btn btn-primary' id='measurements-next'>Next</button>
+		</div>
+		<div id="customize-step">
+			<h3>Lapel</h3>
+			<table>
+				<tr>
+					<td><%= f.radio_button :lapel, "Notch", class: "radio" %></td>
+					<td><%= f.label :notch %></td>
+				</tr>
+				<tr>
+					<td><%= f.radio_button :lapel, "Peak" %></td>
+					<td><%= f.label :peak %></td>
+				</tr>
+			</table>
+			<h3>Vents</h3>
+			<table>
+				<tr>
+					<td><%= f.radio_button :vents, 'One' %></td>
+					<td><%= f.label :single %></td>
+				</tr>
+				<tr>
+					<td><%= f.radio_button :vents, 'Two' %></td>
+					<td><%= f.label :double %></td>
+				</tr>
+			</table>
+			<h3>Buttons</h3>
+			<table>
+				<tr>
+					<td><%= f.radio_button :buttons, 'One' %></td>
+					<td><%= f.label :one %></td>
+				</tr>
+				<tr>
+					<td><%= f.radio_button :buttons, 'Two' %></td>
+					<td><%= f.label :two %></td>
+				</tr>
+				<tr>
+					<td><%= f.radio_button :buttons, 'Three' %></td>
+					<td><%= f.label :three %></td>
+				</tr>
+			</table>
+			<button class='btn btn-primary' id='customize-back'>Back</button>
 			<%= f.submit "Submit", class: "btn btn-primary" %>
-		<% end %>
-	<% else %>
-		<%= form_for(@suit) do |f| %>
-			<div id="measurements-step">
-				<%= render 'layouts/measurements', f: f %>
-				<button class='btn btn-primary' id='measurements-next'>Next</button>
-			</div>
-			<div id="customize-step">
-				<h3>Lapel</h3>
-				<table>
-					<tr>
-						<td><%= f.radio_button :lapel, "Notch", class: "radio" %></td>
-						<td><%= f.label :notch %></td>
-					</tr>
-					<tr>
-						<td><%= f.radio_button :lapel, "Peak" %></td>
-						<td><%= f.label :peak %></td>
-					</tr>
-				</table>
-				<h3>Vents</h3>
-				<table>
-					<tr>
-						<td><%= f.radio_button :vents, 'One' %></td>
-						<td><%= f.label :single %></td>
-					</tr>
-					<tr>
-						<td><%= f.radio_button :vents, 'Two' %></td>
-						<td><%= f.label :double %></td>
-					</tr>
-				</table>
-				<h3>Buttons</h3>
-				<table>
-					<tr>
-						<td><%= f.radio_button :buttons, 'One' %></td>
-						<td><%= f.label :one %></td>
-					</tr>
-					<tr>
-						<td><%= f.radio_button :buttons, 'Two' %></td>
-						<td><%= f.label :two %></td>
-					</tr>
-					<tr>
-						<td><%= f.radio_button :buttons, 'Three' %></td>
-						<td><%= f.label :three %></td>
-					</tr>
-				</table>
-				<button class='btn btn-primary' id='customize-back'>Back</button>
-				<%= f.submit "Submit", class: "btn btn-primary" %>
-			</div>
-		<% end %>
+		</div>
 	<% end %>
 <% end %>
 

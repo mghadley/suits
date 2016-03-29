@@ -29,7 +29,6 @@ end
 gem 'devise', '3.4.1'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
-gem 'dogeify'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -10,6 +10,6 @@ $(document).ready(function() {
 		e.preventDefault();
 		$('#customize-step').hide();
 		$('#measurements-step').show();
-		$('#suit-submit').hide()
+		$('#suit-submit').hide();
 	});
 });

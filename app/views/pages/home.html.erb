@@ -1,8 +1,9 @@
 <h1>Hello there</h1>
-<% unless Measurement.find_by(user_id: current_user.id) %>
-	<%= link_to "You need to give us your measurements", new_measurement_path %>
+<% if current_user.measurement %>
+	<h1 class="text-center"><%= link_to "Place an order", new_suit_path %></h1>
+<% else %>
+	<%= link_to "You need to give us your measurements", new_measurement_path, class: "text-center" %>
 <% end %>
 
-<h1 class="text-center"><%= link_to "Place an order", choose_measurements_path %></h1>
 
 

@@ -20,15 +20,11 @@ class SuitsController < ApplicationController
 		@suit = Suit.new(safe_params)
 		if @suit.save
 			flash[:success] = "Suit built successfully"
-			redirect_to review_path(id: @suit.id)
+			redirect_to new_order_path(id: @suit.id)
 		else
 			flash[:danger] = "Something went wrong"
 		end
 
-	end
-
-	def review
-		@suit = Suit.find(params[:id])
 	end
 
 	def update
@@ -41,5 +37,4 @@ class SuitsController < ApplicationController
   																			:front, :back, :waist, :hips, :crotch, :pants_length, 
   																			:thigh, :knee, :ankle, :lapel, :vents, :buttons)
 	end
-
 end

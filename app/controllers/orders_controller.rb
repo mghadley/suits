@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
 	def new
 		#render body: YAML::dump(params[:measurements])
 		@order = Order.new
+		@suit = Suit.find(params[:id])
 	end
 
 	def update
@@ -13,7 +14,12 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		render body: YAML::dump(params)
+		#render body: YAML::dump(params)
+		@order = Order.new({user_id: current_user.id})
+		@suit = Suit.find(params[:suit_id])
+		if @order.save
+			@suit.update({order_id: @order.id})
+		end
 	end
 
 	def update_measurements
