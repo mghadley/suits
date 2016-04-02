@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+	include OrdersHelper
 
 	def choose_measurements
 	end
@@ -14,11 +15,18 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		#render body: YAML::dump(params)
+		# render body: YAML::dump(params)
 		@order = Order.new({user_id: current_user.id})
 		@suit = Suit.find(params[:suit_id])
 		if @order.save
 			@suit.update({order_id: @order.id})
+				if measurements_changed?(@order)
+					render "measurements/update_from_order"
+				else
+					redirect_to orders_path(id: @order.id)
+				end
+		else
+			redirect_to root_path
 		end
 	end
 
@@ -26,5 +34,6 @@ class OrdersController < ApplicationController
 	end
 
 	def index
+		@order = Order.find(params[:id])
 	end
 end

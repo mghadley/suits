@@ -77,4 +77,4 @@
 	</tr>
 </table>
 
-<%= link_to "Continue", {controller: "orders", action: "create", suit_id: @suit.id}, class: "btn btn-primary" %>
+<%= link_to "Continue", url_options = {controller: "orders", action: "create", suit_id: @suit.id}, method: :post, class: "btn btn-primary" %>
