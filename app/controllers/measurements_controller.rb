@@ -32,6 +32,17 @@ class MeasurementsController < ApplicationController
     end 
   end
 
+  def update_from_order
+    @measurement = Measurement.find_by(user_id: current_user.id)
+    @order = Order.find(params[:id])
+    @measurement.update({shoulders: @order.suit.shoulders, sleeve: @order.suit.sleeve, chest: @order.suit.chest, 
+                        stomach: @order.suit.stomach, jacket_length: @order.suit.jacket_length, front: @order.suit.front, 
+                        back: @order.suit.back, waist: @order.suit.waist, hips: @order.suit.hips, crotch: @order.suit.crotch,
+                        pants_length: @order.suit.pants_length, thigh: @order.suit.thigh, knee: @order.suit.knee,
+                        ankle: @order.suit.ankle})
+    redirect_to orders_path(id: @order.id)
+  end
+
   private
 
   def safe_params

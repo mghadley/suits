@@ -1,1 +1,4 @@
-<h1>You changed your measurements</h1>
+<h1 class = "text-center">Looks like these measurements are different from what we have on file for you</h1>
+<h3 class = "text-center">Would you like to update your measurements with these?</h3>
+<%= link_to "Yes", update_from_order_path(id: @order.id), method: :post,  class: "btn btn-primary" %>
+<%= link_to "No", orders_path(id: @order.id), class: "btn btn-primary" %>
